@@ -1,24 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./App.css";
 
 const API_URL = "https://jsonplaceholder.typicode.com/users";
 
 const UserProfileCard = ({ user, onClose }) => {
-  // Assuming you have a placeholder image service URL
-  const imageUrl = `https://via.placeholder.com/150?text=User${user.id}`;
-
   return (
     <div className="card">
-      <img src={imageUrl} alt={`User ${user.id}`} className="profile-image" />
-      <div>
-        <strong>Name:</strong> {user.name}
-      </div>
-      <div>
-        <strong>Email:</strong> {user.email}
-      </div>
-      <div>
-        <strong>City:</strong> {user.address.city}
-      </div>
+      {user.name} <br />
+      {user.email} <br />
+      {user.address.city}
       {onClose && (
         <span className="close-icon" onClick={() => onClose(user.id)}>
           &#10005;
@@ -56,14 +47,14 @@ const App = () => {
   };
 
   return (
-    <div className="app">
+    <div className="App">
       <h1>User Profile Cards</h1>
       <div className="card-container">
         {users.map((user) => (
           <UserProfileCard key={user.id} user={user} onClose={removeUserCard} />
         ))}
       </div>
-      {users.length < 10 && <button onClick={addUserCard}>Add Card</button>}
+      <button onClick={addUserCard}>Add Card</button>
     </div>
   );
 };
