@@ -31,7 +31,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="app">
       <UserProfileList
         users={users}
         onAdd={handleAddUser}
