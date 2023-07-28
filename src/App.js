@@ -14,12 +14,10 @@ const App = () => {
   }, []);
 
   const handleAddUser = () => {
-    // Assuming the API always returns unique IDs, you can add a new user like this:
-    // Replace with the actual user data you want to add
     const newUser = {
-      id: Math.random(),
-      name: "New User",
-      email: "newuser@example.com",
+      id: Math.random(users.id),
+      name: "name",
+      email: "email",
       address: {
         city: "New City",
       },
